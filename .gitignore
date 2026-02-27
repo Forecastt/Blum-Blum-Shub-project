@@ -10,6 +10,8 @@ bin/
 obj/
 Debug/
 Release/
+dist/
+*.exe
 
 ## Rider / ReSharper
 _ReSharper*/
@@ -31,3 +33,6 @@ BBS.db
 
 ## Logs folder
 Logs/
+
+## Installer
+*.iss

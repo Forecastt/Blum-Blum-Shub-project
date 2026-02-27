@@ -1,22 +1,23 @@
 using Microsoft.Data.Sqlite;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Blum_Blum_Shub_project.Data
 {
     public sealed class SqliteDb
     {
-        private readonly string _dbPath;
+        public string DbPath { get; }
         private readonly string _cs;
 
         public SqliteDb()
         {
-            _dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BBS.db");
-            _cs = new SqliteConnectionStringBuilder { DataSource = _dbPath }.ToString();
+#if DEBUG
+            DbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BBS.db");
+#else
+            Directory.CreateDirectory(Logger.BaseDir);
+            DbPath = Path.Combine(Logger.BaseDir, "BBS.db");
+#endif
+            _cs = new SqliteConnectionStringBuilder { DataSource = DbPath }.ToString();
         }
 
         public SqliteConnection CreateConnection() => new SqliteConnection(_cs);
@@ -37,8 +38,6 @@ CREATE TABLE IF NOT EXISTS Users(
     Salt TEXT NOT NULL,
     CreatedAt TEXT NOT NULL
 );
-
--- История действий (регистрация/вход/выход/генерация/ошибки)
 CREATE TABLE IF NOT EXISTS History(
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     UserLogin TEXT NOT NULL,
@@ -46,8 +45,6 @@ CREATE TABLE IF NOT EXISTS History(
     Info TEXT,
     CreatedAt TEXT NOT NULL
 );
-
--- Таблица блокировок по логину
 CREATE TABLE IF NOT EXISTS LoginLock(
     Login TEXT PRIMARY KEY,
     FailCount INTEGER NOT NULL,

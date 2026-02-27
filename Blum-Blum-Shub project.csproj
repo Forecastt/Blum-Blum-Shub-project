@@ -3,7 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <RootNamespace>Blum_Blum_Shub_project</RootNamespace>
+      <AssemblyName>BlumBlumShub</AssemblyName>
+  <RootNamespace>Blum_Blum_Shub_project</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
