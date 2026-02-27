@@ -1,0 +1,58 @@
+<Window x:Class="Blum_Blum_Shub_project.View.GenerationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Генерация (ББШ)" Height="640" Width="860"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="HeaderText"
+                   FontSize="22" FontWeight="SemiBold"
+                   Margin="0,0,0,14"/>
+
+        <Border Grid.Row="1" Style="{StaticResource CardStyle}" Margin="0,0,0,14">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="N" VerticalAlignment="Center"/>
+                <TextBox x:Name="NBox" Grid.Column="1" Margin="10,0,0,0" PreviewTextInput="NBox_PreviewTextInput"/>
+
+                <TextBlock Text="X0" Grid.Column="3" VerticalAlignment="Center"/>
+                <TextBox x:Name="X0Box" Grid.Column="4" Margin="10,0,0,0" PreviewTextInput="X0Box_PreviewTextInput"/>
+
+                <Button Content="Сгенерировать" Grid.Column="6" Width="150" Click="Gen_Click"/>
+                <Button Content="В меню" Grid.Column="7" Width="110" Margin="10,0,0,0"
+                        Style="{StaticResource SecondaryButton}" Click="Menu_Click"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Style="{StaticResource CardStyle}" Padding="12">
+            <TextBox x:Name="OutputBox"
+             Margin="0"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             AcceptsReturn="True"
+             VerticalScrollBarVisibility="Auto"
+             HorizontalScrollBarVisibility="Auto"
+             TextWrapping="Wrap"
+             FontFamily="Consolas"
+             FontSize="13"
+             Background="White"
+             BorderThickness="0"/>
+        </Border>
+    </Grid>
+</Window>

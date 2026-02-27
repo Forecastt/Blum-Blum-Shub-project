@@ -1,0 +1,34 @@
+<Window x:Class="Blum_Blum_Shub_project.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Меню" Height="420" Width="520"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="24">
+        <Border Style="{StaticResource CardStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Меню" FontSize="22" FontWeight="SemiBold"/>
+
+                <TextBlock x:Name="UserText"
+                           Grid.Row="1"
+                           Text="Пользователь:"
+                           Foreground="{StaticResource MutedBrush}"
+                           Margin="0,8,0,18"/>
+
+                <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                    <Button Content="Генерация" Margin="0,0,0,10" Click="Generate_Click"/>
+                    <Button Content="История" Margin="0,0,0,10" Click="History_Click"
+                            Style="{StaticResource SecondaryButton}"/>
+                    <Button Content="Выход" Click="Logout_Click"
+                            Style="{StaticResource SecondaryButton}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

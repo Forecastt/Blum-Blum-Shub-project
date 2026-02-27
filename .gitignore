@@ -1,0 +1,33 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+bin/
+obj/
+Debug/
+Release/
+
+## Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+## Logs
+*.log
+
+## Windows
+Thumbs.db
+Desktop.ini
+
+## NuGet
+packages/
+*.nupkg
+
+## Generated database
+BBS.db
+
+## Logs folder
+Logs/
